@@ -1,0 +1,34 @@
+<div class="container text-center my-3">
+    <h1 class="text-primary">Mars Rover's Galery</h1>
+</div>
+<div class="container pt-5 mb-5 my-2">
+    <div class="col-md-10 mx-auto">
+        <form class="form">
+            <div class="form-group row">
+                <div class="col-md-6">
+                    <p>Choose Rover</p>
+                    <select name="rover" class="form-control">
+                        <option *ngIf="marsPhoto[0]['rover'].name != 'Curiosity'" value="curiosity">Curiosity</option>
+                        <option *ngIf="marsPhoto[0]['rover'].name == 'Curiosity'" value="curiosity" selected>Curiosity</option>
+                        <option *ngIf="marsPhoto[0]['rover'].name != 'Opportunity'" value="opportunity">Opportunity</option>
+                        <option *ngIf="marsPhoto[0]['rover'].name == 'Opportunity'" value="opportunity" selected>Opportunity</option>
+                        <option *ngIf="marsPhoto[0]['rover'].name != 'Spirit'" value="spirit">Spirit</option>
+                        <option *ngIf="marsPhoto[0]['rover'].name == 'Spirit'" value="spirit" selected>Spirit</option>
+                        <option *ngIf="marsPhoto[0]['rover'].name != 'Perseverance'" value="perseverance">Perseverance</option>
+                        <option *ngIf="marsPhoto[0]['rover'].name == 'Perseverance'" value="perseverance" selected>Perseverance</option>
+                    </select>
+                </div>
+            </div>
+            <button class="btn btn-success">Choose</button>
+        </form>
+    </div>
+</div>
+<div class="container">
+    <div class="row ml-5">
+        <div class="grid-item" *ngFor="let photo of marsPhoto">
+            <div class="grid-item m-1">
+                <a href="{{ photo['img_src'] }}"><img src="{{ photo['img_src'] }}" class="gerak rounded rounded-lg" width="250px" height="160px"></a>
+            </div>
+        </div>
+    </div>
+</div>

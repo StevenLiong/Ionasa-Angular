@@ -1,0 +1,56 @@
+<!-- fitur NASA News -->
+<div class="container text-center my-3">
+    <h1 class="text-primary">NASA News</h1>
+</div>
+<div class="container pt-5 mb-5 mt-2">
+    <div class="col-md-10 mx-auto">
+        <form class="form">
+            <div class="form-group row">
+                <div class="col-md-6 my-2">
+                    <a>Description</a>
+                    <input class="col-md-12" type="text" name="description" >
+                </div>
+                <div class="col-md-6 my-2">
+                    <a>Title</a>
+                    <input class="col-md-12" type="text" name="title" >
+                </div>
+                <div class="col-md-6 my-2">
+                    <a>Keywords</a>
+                    <input class="col-md-12" type="text" name="keywords" >
+                </div>
+                <div class="col-md-6 my-2">
+                    <a>Location</a>
+                    <input class="col-md-12" type="text" name="location" >
+                </div>
+                <div class="col-md-6 my-2">
+                    <a>Photographer</a>
+                    <input class="col-md-12" type="text" name="photographer" >
+                </div>
+            </div>
+            <button class="btn btn-success">Search</button>
+        </form>
+    </div>
+</div>
+
+<div class="container" *ngIf="cek">
+    <div class="row p-1 my-2" *ngFor="let photo of nasaPhotos" style="vertical-align: middle;">
+        <div class="col-md-3">
+            <a href="{{ photo['links'][0]['href'] }}"><img src="{{ photo['links'][0]['href'] }}" class="gerak rounded rounded-lg" style="vertical-align:middle" width="250px" height="auto"></a>
+        </div>
+        <div class="col-md-9">
+            <div class="card rounded">
+                <div class="card-title bg-dark text-white rounded-top px-4 py-2">
+                    <h4>{{ photo['data'][0]['title'] }}</h4>
+                </div>
+                <div class="card-body">
+                    <p style="margin-top:-20px">Photographer : {{ photo['data'][0]['photographer'] }}</p>
+                    <p style="margin-top:-15px;">Date Created : {{ photo['data'][0]['date_created'] | slice:0:10 }}</p>
+                    <p>{{ photo['data'][0]['description'] }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container mb-5" *ngIf="!cek">
+    <h3 class="text-center">Data not found!</h3>
+</div>

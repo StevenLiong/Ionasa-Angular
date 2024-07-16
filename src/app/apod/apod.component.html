@@ -1,0 +1,33 @@
+<div class="container text-center my-3">
+    <h1 class="text-primary">Astronomy Picture Of The Day</h1>
+</div>
+
+<div class="col-md-12 text-white text-center my-3 py-3" style="background-color: rgb(3, 81, 87);" *ngIf="!erorStatus">
+    <a href="{{ data['url'] }}"><img src="{{ data['url'] }}" class="my-2 gerak" width="auto" height="auto"></a>
+    <div class="my-3">
+        <h2 class="font-weight-bold">{{ data['title'] }}</h2>
+        <p>{{ data['copyright'] }} </p> 
+        <p style="margin-top:-20px">{{ data['date'] }}</p>
+    </div>
+</div>
+<div class="container my-5">
+    <div class="row">
+        <div class="col-md-8 bg-white text-dark text-justify" >
+            <p *ngIf="!erorStatus">{{ data['explanation'] }}</p>
+            <h4 class="text-center" *ngIf="erorStatus">{{ erorResponse.error.msg }}</h4>
+        </div>
+        <div class="col-md-4 text-dark text-center">
+            <form class="form-group">
+                <label for="date">Search by Date</label>
+                <div class="form-inline ml-5">
+                    <input class="form-control my-3 mx-2" type="date" name="date" #date required>
+                    <button class="btn btn-success">Search</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div *ngIf="erorStatus">
+    <br><br><br><br><br>
+</div>
+

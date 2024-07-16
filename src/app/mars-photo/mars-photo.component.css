@@ -1,0 +1,9 @@
+.gerak {
+    opacity: 1;
+    transition: .3s ease-in-out;
+  }
+  
+  .gerak:hover {
+    opacity: .8;
+    transform: scale(1.05);
+  }
